@@ -1,0 +1,19 @@
+cout << "enter width: " << endl;
+            cin >> newWidth;
+            cout << "enter height: " << endl;
+            cin >> newHeight;
+            newPic (newWidth, newHeight, pic.channels);
+            double widthScale = static_cast<double> (pic.width)/newWidth ;
+            double heightScale = static_cast<double> (pic.height)/newHeight ;
+          
+            for (int i=0; i<newWidth ; i++) {
+                for (int j=0 ;j<newHeight;j++) {
+                  
+                    for (int k=0 ;k<3 ;k++) {
+                        int originalX = static_cast<int>(i * widthScale);
+                        int originalY = static_cast<int>(j * heightScale);
+
+                        newPic (i,j,k) = pic (originalX, originalY, k);
+                    } 
+                }
+            }
